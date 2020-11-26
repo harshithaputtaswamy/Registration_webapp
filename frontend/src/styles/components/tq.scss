@@ -1,0 +1,40 @@
+.tq_div{
+    min-height:50vh;
+    background-color: #000080; /* For browsers that do not support gradients */
+   background-image: linear-gradient(to top right, #b91372  12%, #000080);
+    padding-top: 10%;
+    width: 75%;
+    margin-top: 10%;
+    margin-left: 12%;
+    margin-right: 5%;
+}
+.tq_third{
+    font-size: 2.3rem;
+    margin-top: -8%;
+    /* background-image: linear-gradient(to top right, #b91372  12%, #000080); */
+    color: white;
+  }
+  
+  .tq_fifth{
+    margin-top: 10px;
+    font: 2rem;
+    padding-left:0rem;
+    font-family: sans-serif;
+    margin-top: 6%;
+    color:#ff9a16;
+  }
+  @media(max-width:767px){
+    .tq_fifth{
+      line-height: 3rem;
+    }
+  }
+  @media(min-width: 170px){
+    .tq_fifth{
+    line-height: 0.1rem;
+    }
+  }
+  @media(min-width: 168px){
+    .tq_fifth{
+    line-height: 2rem;
+    }
+  }

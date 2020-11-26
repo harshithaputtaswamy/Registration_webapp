@@ -1,0 +1,250 @@
+.App {
+    text-align: center;
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    //background: url(./img2.jpeg) no-repeat center center scroll;
+    background-size: cover;
+  }
+  
+  .buttonClass{
+    position:absolute;
+    bottom: 17%;
+    font-family: sans-serif;
+    line-height: 1;
+    color:whitesmoke; 
+    font-weight: 700;
+    background-color: #ff9a16;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: none;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  .yp_welcome
+  {
+   min-height:100vh;
+   background-color: #000080; /* For browsers that do not support gradients */
+   background-image: linear-gradient(to top right, #b91372  12%, #000080);
+   line-height:0.05;
+   padding-top: 10%;
+   width: 100%;
+  }
+  .yp_first 
+  {
+   font-size:40px;
+   font-family:sans-serif;
+   padding-right: 5em;
+   line-height:0.0;
+   color:whitesmoke;
+  }
+  
+  .yp_third
+  {
+   font-size:2em;
+   font-family:sans-serif;
+   line-height: 1;
+   padding-top:3%;
+   color: rgb(230, 230, 230);
+  }
+  
+  .yp_fourth 
+  {
+    
+    font-size:2em;
+    padding-left:4em;
+    font-family: sans-serif;
+    line-height: 2;
+    color:whitesmoke;
+  }
+  .yp_fifth
+  {
+    margin-top: 2rem;
+    font-size:1.5em;
+    padding-left:0em;
+    font-family: sans-serif;
+    line-height: 1;
+    color:whitesmoke;
+  }
+  .yp_second
+  {
+    font-weight: 800;
+    width: 5em;
+    line-height: 1.2em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0em;
+    font-size:90px;
+    font-family:arial;
+    
+  }
+  
+  /* Style the rainbow text element. */
+   .yp_second 
+   {
+    /* Create a conic gradient. */
+    /* Double percentages to avoid blur (#000 10%, #fff 10%, #fff 20%, ...). */
+    background: #CA4246;
+    background-color: #CA4246;
+    background: conic-gradient(
+      #CA4246 16.666%, 
+      #E16541 16.666%, 
+      #E16541 33.333%, 
+      #F18F43 33.333%, 
+      #F18F43 50%, 
+      #8B9862 50%, 
+      #8B9862 66.666%, 
+      #476098 66.666%, 
+      #476098 83.333%, 
+      #A7489B 83.333%);
+    
+    
+    /* Set thee background size and repeat properties. */
+    background-size: 57%;
+    background-repeat: repeat;
+    
+    /* Use the text as a mask for the background. */
+    /* This will show the gradient as a text color rather than element bg. */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    
+    /* Animate the text when loading the element. */
+    /* This animates it on page load and when hovering out. */
+    animation: yp_second-animation-rev 0.5s ease forwards;
+  
+    cursor: pointer;
+  }
+  
+  /* Add animation on hover. */
+  .yp_welcome .yp_second:hover 
+  {
+    animation: yp_second-animation 0.5s ease forwards;
+  }
+  
+  /* Move the background and make it larger. */
+  /* Animation shown when hovering over the text. */
+  @keyframes yp_second-animation {
+    0% {
+      background-size: 57%;
+      background-position: 0 0;
+    }
+    20% {
+      background-size: 57%;
+      background-position: 0 1em;
+    }
+    100% {
+      background-size: 300%;
+      background-position: -9em 1em;
+    }
+  }
+  
+  /* Move the background and make it smaller. */
+  /* Animation shown when entering the page and after the hover animation. */
+  @keyframes yp_second-animation-rev {
+    0% {
+      background-size: 300%;
+      background-position: -9em 1em;
+    }
+    20% {
+      background-size: 57%;
+      background-position: 0 1em;
+    }
+    100% {
+      background-size: 57%;
+      background-position: 0 0;
+    }
+  }
+  
+  
+  
+  
+  .yp_third h3 {
+  font-family: "Archivo Black", sans-serif;
+  font-weight: normal;
+  font-size: 6em;
+  text-align: center;
+  margin-bottom: 0;
+  margin-bottom: -0.25em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+  width: 605px;
+  }
+  
+  
+  
+  .yp_first
+   { 
+     display: inline;
+      position: relative; 
+      overflow: hidden;
+   }
+    .yp_first:after 
+    { 
+      content: ""; 
+      position: absolute; z-index: -1;
+      right: 0; 
+      width: 0;
+      bottom: -5px; 
+      background: #000;
+      height: 4px; 
+      transition-property: width; 
+      transition-duration: 0.3s; 
+      transition-timing-function: ease-out;
+     }
+     .yp_first:hover:after, .yp_first:focus:after, .yp_first:active:after
+    { 
+      left: 0;
+      right: auto; 
+      width: 100%; 
+    }
+  @media(min-width:768px) and (max-width:991px){
+    .yp_welcome{
+        padding-top: 15%;
+    }
+    .yp_first{
+      padding-left: 5em;
+      line-height: 0;
+    }
+    .yp_fourth{
+      padding-left: 1em;
+      line-height: 3.4;
+    }
+  }
+  @media(max-width:767px){
+    .yp_welcome{
+      padding-top: 25%;
+  }
+    .yp_first{
+      line-height: 0;
+      padding-top: 50%;
+    }
+    .yp_fourth{
+      padding-left: 5em;
+      line-height: 2;
+    }
+    .yp_second{
+      font-weight: 800;
+      width: 5em;
+      line-height: 1.2em;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0.5em;
+      font-size: 70px;
+    }
+    .yp_g{
+      padding-top: 10%;
+    }
+  }
+  
