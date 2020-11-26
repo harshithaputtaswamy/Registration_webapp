@@ -7,14 +7,19 @@ const Home = () => {
       <header className="App-header">
       <div className="yp_welcome">
               <center>                  
-                  <h1 className="yp_third">Yes!+ Club Presents...</h1>
-                  <h3 className="yp_second">Synergy</h3>
-                  <h5 className="yp_fifth">A series of talks by Industry experts!!</h5>
+                  <h1 className="yp_third">Art of Living presents</h1>
+                  <h3 className="yp_second">Living Out Loud</h3>
+                  
               </center>
+              
           </div> 
-          
-        <button className="buttonClass"><Link to="/Reg_Form" style={{color:"white"}}>REGISTER</Link></button>
-                
+          <h5 className="yp_fifth">
+                    Time<br/>
+                    Sat 6pm to 7:30pm<br/>
+                    Sun 10:30am to 12:30am</h5>
+         
+        <button className="buttonClass"><Link to="/Reg_Form" className="linkClass" >REGISTER</Link></button>
+        
       </header>
     </div>
   );

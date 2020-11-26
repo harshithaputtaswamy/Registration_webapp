@@ -41,16 +41,16 @@ submitHandler = e => {
 	var user_obj;
 	e.preventDefault()
 	console.log(this.state)//line used to print on console
-	axios // used for post requests also works similar to promises
-		.post('https://yesplus-event-reg-backend.herokuapp.com/add_user', this.state) //data is the function name written for login in backend also this line helps to pass the data to backend server from frontend server
-		.then(response => { //this line helps use to rececive response from backend 
-			user_obj=response.data;
-			if(user_obj.status === 200){ //user_obj is the response rececived from the backend
-				this.props.history.push('/Tq')
-			}
-			else
-				alert('Please try registering again.');
-		})
+	// axios // used for post requests also works similar to promises
+	// 	.post('https://yesplus-event-reg-backend.herokuapp.com/add_user', this.state) //data is the function name written for login in backend also this line helps to pass the data to backend server from frontend server
+	// 	.then(response => { //this line helps use to rececive response from backend 
+	// 		user_obj=response.data;
+	// 		if(user_obj.status === 200){ //user_obj is the response rececived from the backend
+	// 			this.props.history.push('/Tq')
+	// 		}
+	// 		else
+	// 			alert('Please try registering again.');
+	// 	})
 
     	.catch(error => {
 			console.log(error)// if u find some error catch gets exceuted

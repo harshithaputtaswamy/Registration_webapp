@@ -13,16 +13,22 @@
     //background: url(./img2.jpeg) no-repeat center center scroll;
     background-size: cover;
   }
+
+  .linkClass{
+    color:white;
+    font-size: 20px;
+    text-decoration: none;
+  }
   
   .buttonClass{
     position:absolute;
-    bottom: 17%;
+    bottom: 37%;
     font-family: sans-serif;
     line-height: 1;
     color:whitesmoke; 
     font-weight: 700;
-    background-color: #ff9a16;
-    padding: 1rem;
+    background-color: #fd7a00;
+    padding: 1.2rem;
     border-radius: .5rem;
     border: none;
   }
@@ -34,10 +40,10 @@
   .yp_welcome
   {
    min-height:100vh;
-   background-color: #000080; /* For browsers that do not support gradients */
-   background-image: linear-gradient(to top right, #b91372  12%, #000080);
-   line-height:0.05;
-   padding-top: 10%;
+   background-color: #ff7300; /* For browsers that do not support gradients */
+   background-image: linear-gradient(to top right, #fdd9a9  12%, #ff7300);
+  //  line-height:0.05;
+  //  padding-top: 10%;
    width: 100%;
   }
   .yp_first 
@@ -51,11 +57,11 @@
   
   .yp_third
   {
-   font-size:2em;
+   font-size:1.7em;
    font-family:sans-serif;
    line-height: 1;
-   padding-top:3%;
-   color: rgb(230, 230, 230);
+   padding-top:10%;
+   color: rgb(255, 255, 255);
   }
   
   .yp_fourth 
@@ -69,22 +75,24 @@
   }
   .yp_fifth
   {
-    margin-top: 2rem;
-    font-size:1.5em;
+    position:absolute;
+    // margin-top: 2rem;
+    bottom: 50px;
+    font-size:1em;
     padding-left:0em;
     font-family: sans-serif;
-    line-height: 1;
-    color:whitesmoke;
+    // line-height: 1;
+    color:rgb(0, 69, 109);
   }
   .yp_second
   {
     font-weight: 800;
-    width: 5em;
+    width: 800px;
     line-height: 1.2em;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0em;
-    font-size:90px;
+    font-size:60px;
     font-family:arial;
     
   }
@@ -94,24 +102,21 @@
    {
     /* Create a conic gradient. */
     /* Double percentages to avoid blur (#000 10%, #fff 10%, #fff 20%, ...). */
-    background: #CA4246;
-    background-color: #CA4246;
-    background: conic-gradient(
-      #CA4246 16.666%, 
-      #E16541 16.666%, 
-      #E16541 33.333%, 
-      #F18F43 33.333%, 
-      #F18F43 50%, 
-      #8B9862 50%, 
-      #8B9862 66.666%, 
-      #476098 66.666%, 
-      #476098 83.333%, 
-      #A7489B 83.333%);
+    // background: #CA4246;
+    // background-color: #CA4246;
+    // background: conic-gradient(
+    //   #64c9f8 16.666%, 
+    //   #15c4c4 16.666%, 
+    //   #41e1d4 33.333%, 
+    //   #0c37f5 33.333%, 
+    //   #02567e 50%, 
+    //  );
+     background-image: linear-gradient(to left,#011d68, #10a0cc );
     
     
     /* Set thee background size and repeat properties. */
-    background-size: 57%;
-    background-repeat: repeat;
+    background-size: 100%;
+    background-repeat: no-repeat;
     
     /* Use the text as a mask for the background. */
     /* This will show the gradient as a text color rather than element bg. */
@@ -120,7 +125,7 @@
     
     /* Animate the text when loading the element. */
     /* This animates it on page load and when hovering out. */
-    animation: yp_second-animation-rev 0.5s ease forwards;
+    // animation: yp_second-animation-rev 0.5s ease forwards;
   
     cursor: pointer;
   }
@@ -128,7 +133,7 @@
   /* Add animation on hover. */
   .yp_welcome .yp_second:hover 
   {
-    animation: yp_second-animation 0.5s ease forwards;
+    // animation: yp_second-animation 0.5s ease forwards;
   }
   
   /* Move the background and make it larger. */
@@ -197,7 +202,7 @@
       right: 0; 
       width: 0;
       bottom: -5px; 
-      background: #000;
+      // background: #000;
       height: 4px; 
       transition-property: width; 
       transition-duration: 0.3s; 
@@ -224,8 +229,14 @@
   }
   @media(max-width:767px){
     .yp_welcome{
-      padding-top: 25%;
+      // padding-top: 25%;
   }
+  .yp_third
+  {
+   padding-top:30%;
+
+  }
+
     .yp_first{
       line-height: 0;
       padding-top: 50%;
@@ -236,12 +247,12 @@
     }
     .yp_second{
       font-weight: 800;
-      width: 5em;
+      width: 95vw;
       line-height: 1.2em;
       margin-left: auto;
       margin-right: auto;
       margin-top: 0.5em;
-      font-size: 70px;
+      font-size: 50px;
     }
     .yp_g{
       padding-top: 10%;
