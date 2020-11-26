@@ -6,8 +6,7 @@ const Home = () => {
     <div className="App">
       <header className="App-header">
       <div className="yp_welcome">
-              <center>
-                  
+              <center>                  
                   <h1 className="yp_third">Yes!+ Club Presents...</h1>
                   <h3 className="yp_second">Synergy</h3>
                   <h5 className="yp_fifth">A series of talks by Industry experts!!</h5>

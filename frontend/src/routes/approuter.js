@@ -14,7 +14,6 @@ const AppRouter = () =>(
                 <Route path="/Tq" component={Tq}  />
                 <Route component={Notfound} />
             </Switch>
-
         </div>
     </BrowserRouter>
 );

@@ -1,7 +1,10 @@
 import '../App.css';
-import React, { Component } from 'react'
-import axios from 'axios'
-
+import React, { Component, useState } from 'react'
+// import Form from 'react-bootstrap/lib/Form';
+import DatePicker from "react-datepicker";
+// import axios from 'axios'
+import "react-datepicker/dist/react-datepicker.css";
+ 
 class Reg_Form extends Component {
 	constructor(props) {
 		super(props)
@@ -10,21 +13,29 @@ class Reg_Form extends Component {
 			name:'',	
 			tel:'',	
 			WhatsApp:'',
-			college:'',
 			profession:'',
 			email:'',
 			state:'',
 			city:'',
             workshop:'',
 			age:'',
-			date:'',
+			// startdate:'',
 
 		}
+		this.handleChange = this.handleChange.bind(this);
 	}
 // e is a representative varible of this.state
 changeHandler = e => {
 	this.setState({ [e.target.name]: e.target.value })//json object key value pair
 }
+
+handleChange(date) {
+	this.setState({
+	startDate: date
+	})
+	}
+
+
 
 submitHandler = e => {
 	var user_obj;
@@ -49,7 +60,7 @@ submitHandler = e => {
 
 	render() {
 		const { name,tel,WhatsApp,email,profession,workshop,age,city,state,date } = this.state
-
+		
 
 		return (
 			<div className="yp_form">
@@ -99,9 +110,7 @@ submitHandler = e => {
 						onChange={this.changeHandler}
 						
 					/>
-				</div>
-				
-				
+				</div>		
 								
 				<div>					
 					<div>
@@ -139,19 +148,23 @@ submitHandler = e => {
 						</select>
 					</div>
 
-					<label><b>City:</b></label>
-					<input
-						type="text"
-						name="city"
-						placeholder="Enter your City"
-						value={city}
-						onChange={this.changeHandler}
-						required
-					/>
+					<div>
+						<label><b>City:</b></label>
+						<input
+							type="text"
+							name="city"
+							placeholder="Enter your City"
+							value={city}
+							onChange={this.changeHandler}
+							required
+						/>
+					</div>
 				</div>
+				<div>
+				
 				<div>			
-                   <label><b>Age group</b></label><br/>
-					<select name="age" id="age" onChange={this.changeHandler}>
+                   <label><b>Age group:</b></label><br/>
+					<select name="age" id="workshop" onChange={this.changeHandler}>
 						<option value="select the age group">Select the age group</option>
 						<option value="18-25">18-25</option>
 						<option value="26-30">26-30</option>
@@ -159,16 +172,8 @@ submitHandler = e => {
 				</div> 
 
 				<div>
-					<label for="profession"><b>profession:</b></label>
-					{/* <input
-						type="text"
-						name="profession"
-						placeholder="profession"
-						value={profession}
-						onChange={this.changeHandler}
-						required
-					/> */}
-					<select name="profession" id="profession" onChange={this.changeHandler}>
+					<label ><b>Profession:</b></label><br/>
+					<select name="profession" id="workshop" onChange={this.changeHandler}>
 						<option value="select profession">Select profession</option>
 						<option value="Student">Student</option>
 						<option value="Working">Working</option>
@@ -188,17 +193,20 @@ submitHandler = e => {
 					</select>
 				</div>       
 
+				<div>
 				<label><b>When did you do the workshop</b> </label><br/>
 				<DatePicker
 					name="date"
 					value={date}
-					selected={this.state.startDate}
-					onChange={this.changeHandler}
-					// selected={startDate}
-					// onChange={date => setStartDate(date)}
-					dateFormat="MM/yyyy"
+					selected={ this.state.startDate }
+					onChange={ this.handleChange }
+					dateFormat="MM./yyyy"
+					placeholderText="MM/yyyy"
 					showMonthYearPicker
 				/>
+				</div>
+					
+				</div>
 				<button type="submit" className="submit-button">Submit</button>
 				
 				</form>				
