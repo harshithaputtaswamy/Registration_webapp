@@ -38,6 +38,7 @@ app.get('/', (req, res) => {
 app.post('/register',(req, res) => {
     //Call this function when sign up happens
   const user_obj = req.body;
+  console.log(req.body)
   const event_name = String("laughing_out_loud")
   const user_data = {
     user_name: user_obj.name,
