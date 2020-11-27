@@ -2,7 +2,7 @@ import '../App.css';
 import React, { Component, useState } from 'react'
 // import Form from 'react-bootstrap/lib/Form';
 import DatePicker from "react-datepicker";
-// import axios from 'axios'
+import axios from 'axios'
 import "react-datepicker/dist/react-datepicker.css";
  
 class Reg_Form extends Component {
@@ -19,6 +19,7 @@ class Reg_Form extends Component {
 			city:'',
             workshop:'',
 			age:'',
+			event_name:'',
 			// startdate:'',
 
 		}
@@ -41,16 +42,16 @@ submitHandler = e => {
 	var user_obj;
 	e.preventDefault()
 	console.log(this.state)//line used to print on console
-	// axios // used for post requests also works similar to promises
-	// 	.post('https://yesplus-event-reg-backend.herokuapp.com/add_user', this.state) //data is the function name written for login in backend also this line helps to pass the data to backend server from frontend server
-	// 	.then(response => { //this line helps use to rececive response from backend 
-	// 		user_obj=response.data;
-	// 		if(user_obj.status === 200){ //user_obj is the response rececived from the backend
-	// 			this.props.history.push('/Tq')
-	// 		}
-	// 		else
-	// 			alert('Please try registering again.');
-	// 	})
+	axios // used for post requests also works similar to promises
+		.post('https://yesplus-registration.herokuapp.com/register', this.state) //data is the function name written for login in backend also this line helps to pass the data to backend server from frontend server
+		.then(response => { //this line helps use to rececive response from backend 
+			user_obj=response.data;
+			if(user_obj.status === 200){ //user_obj is the response rececived from the backend
+				this.props.history.push('/Tq')
+			}
+			else
+				alert('Please try registering again.');
+		})
 
     	.catch(error => {
 			console.log(error)// if u find some error catch gets exceuted
@@ -59,12 +60,13 @@ submitHandler = e => {
 
 
 	render() {
-		const { name,tel,WhatsApp,email,profession,workshop,age,city,state,date } = this.state
+		const { name,tel,WhatsApp,email,profession,workshop,age,city,state,date,event_name } = this.state
 		
 
 		return (
 			<div className="yp_form">
 				<form onSubmit={this.submitHandler}>
+					<input hidden name="event_name" value="Living out Loud" />
 				<div>
 					<center><h2>Register Here</h2></center>
 					<label><b>Name:</b></label>
