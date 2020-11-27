@@ -8,7 +8,7 @@ var serviceAccount = require("./ServiceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://event-reg-backend.firebaseio.com"
+  databaseURL: "https://event-reg-backend.firebaseio.com/"
 });
 
 const db = admin.firestore();
