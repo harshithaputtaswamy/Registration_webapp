@@ -8,7 +8,7 @@ var serviceAccount = require("./ServiceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://event-reg-backend.firebaseio.com"
+  databaseURL: "https://event-reg-backend.firebaseio.com/"
 });
 
 const db = admin.firestore();
@@ -35,20 +35,21 @@ app.get('/', (req, res) => {
 });
   
 
-app.post('/41',(req, res) => {
+app.post('/register',(req, res) => {
     //Call this function when sign up happens
   const user_obj = req.body;
-  const event_name = req.body.event_name
+  console.log(req.body)
+  const event_name = String("laughing_out_loud")
   const user_data = {
     user_name: user_obj.name,
     user_email: user_obj.email,
     user_tel: user_obj.tel,
+    user_age: user_obj.age,
     user_whatsapp: user_obj.WhatsApp,
     user_profession: user_obj.profession,
     user_start_date: user_obj.startdate,
     user_state: user_obj.state,
     user_city: user_obj.city,
-    user_mentor: user_obj.mentor,
     user_workshop: user_obj.workshop
   };
   console.log(user_data);
