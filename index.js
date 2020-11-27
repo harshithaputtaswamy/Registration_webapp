@@ -43,12 +43,12 @@ app.post('/register',(req, res) => {
     user_name: user_obj.name,
     user_email: user_obj.email,
     user_tel: user_obj.tel,
+    user_age: user_obj.age,
     user_whatsapp: user_obj.WhatsApp,
     user_profession: user_obj.profession,
     user_start_date: user_obj.startdate,
     user_state: user_obj.state,
     user_city: user_obj.city,
-    user_mentor: user_obj.mentor,
     user_workshop: user_obj.workshop
   };
   console.log(user_data);
