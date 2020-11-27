@@ -8,7 +8,7 @@ var serviceAccount = require("./ServiceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://backend-registration.firebaseio.com"
+  databaseURL: "https://event-reg-backend.firebaseio.com"
 });
 
 const db = admin.firestore();
@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 });
   
 
-app.post('/add_user',(req, res) => {
+app.post('/41',(req, res) => {
     //Call this function when sign up happens
   const user_obj = req.body;
   const user_data = {
