@@ -1,6 +1,6 @@
 const express = require("express");
 
-const port = 5000;
+const port = process.env.PORT || 3000;
 
 var admin = require("firebase-admin");
 
@@ -8,7 +8,7 @@ var serviceAccount = require("./ServiceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://backend-registration.firebaseio.com"
+  databaseURL: "https://event-reg-backend.firebaseio.com"
 });
 
 const db = admin.firestore();
@@ -35,15 +35,17 @@ app.get('/', (req, res) => {
 });
   
 
-app.post('/add_user',(req, res) => {
+app.post('/41',(req, res) => {
     //Call this function when sign up happens
   const user_obj = req.body;
+  const event_name = req.body.event_name
   const user_data = {
     user_name: user_obj.name,
     user_email: user_obj.email,
     user_tel: user_obj.tel,
-    user_college: user_obj.college,
-    user_stream: user_obj.Stream,
+    user_whatsapp: user_obj.WhatsApp,
+    user_profession: user_obj.profession,
+    user_start_date: user_obj.startdate,
     user_state: user_obj.state,
     user_city: user_obj.city,
     user_mentor: user_obj.mentor,
@@ -54,7 +56,7 @@ app.post('/add_user',(req, res) => {
     "status" : 0 
   }
   return db
-    .collection("synergythree_data")
+    .collection(event_name)
     .doc(user_data.user_email)
     .set(user_data)
     .then(() => {
