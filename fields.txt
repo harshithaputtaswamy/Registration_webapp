@@ -1,1 +1,5 @@
 name,tel,WhatsApp,email,profession,workshop,age,city,state,startdate
+
+Gmail - yesplusbangalore2020@gmail.com
+gmail pass - Yesplus2020
+heroku pass - Yesplus2020!
