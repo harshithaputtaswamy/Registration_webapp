@@ -1,9 +1,9 @@
 import '../App.css';
 import React, { Component, useState } from 'react'
 // import Form from 'react-bootstrap/lib/Form';
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import axios from 'axios'
-import "react-datepicker/dist/react-datepicker.css";
+// import "react-datepicker/dist/react-datepicker.css";
  
 class Reg_Form extends Component {
 	constructor(props) {
@@ -20,21 +20,21 @@ class Reg_Form extends Component {
             workshop:'',
 			age:'',
 			event_name:'',
-			// startdate:'',
+			startdate:'',
 
 		}
-		this.handleChange = this.handleChange.bind(this);
+		// this.handleChange = this.handleChange.bind(this);
 	}
 // e is a representative varible of this.state
 changeHandler = e => {
 	this.setState({ [e.target.name]: e.target.value })//json object key value pair
 }
 
-handleChange(date) {
-	this.setState({
-	startDate: date
-	})
-	}
+// handleChange(date) {
+// 	this.setState({
+// 	startdate: date.toDateString()
+// 	})
+// 	}
 
 
 
@@ -60,13 +60,13 @@ submitHandler = e => {
 
 
 	render() {
-		const { name,tel,WhatsApp,email,profession,workshop,age,city,state,date,event_name } = this.state
+		const { name,tel,WhatsApp,email,profession,workshop,age,city,state,startdate,event_name } = this.state
 		
 
 		return (
 			<div className="yp_form">
 				<form onSubmit={this.submitHandler}>
-					<input hidden name="event_name" value="Living out Loud" />
+					<input hidden name="event_name" value="Living_out_Loud" />
 				<div>
 					<center><h2>Register Here</h2></center>
 					<label><b>Name:</b></label>
@@ -110,7 +110,7 @@ submitHandler = e => {
 						placeholder="Enter your WhatsApp number"
 						value={WhatsApp}
 						onChange={this.changeHandler}
-						
+						required
 					/>
 				</div>		
 								
@@ -197,14 +197,13 @@ submitHandler = e => {
 
 				<div>
 				<label><b>When did you do the workshop</b> </label><br/>
-				<DatePicker
-					name="date"
-					value={date}
-					selected={ this.state.startDate }
-					onChange={ this.handleChange }
-					dateFormat="MM./yyyy"
-					placeholderText="MM/yyyy"
-					showMonthYearPicker
+				<input
+					type="text"
+					name="startdate"
+					value={startdate}					
+					onChange={ this.changeHandler }					
+					placeholder="MM/YYYY"
+					
 				/>
 				</div>
 					
