@@ -1,9 +1,9 @@
 import '../App.css';
 import React, { Component, useState } from 'react'
 // import Form from 'react-bootstrap/lib/Form';
-import DatePicker from "react-datepicker";
-// import axios from 'axios'
-import "react-datepicker/dist/react-datepicker.css";
+// import DatePicker from "react-datepicker";
+import axios from 'axios'
+// import "react-datepicker/dist/react-datepicker.css";
  
 class Reg_Form extends Component {
 	constructor(props) {
@@ -19,21 +19,22 @@ class Reg_Form extends Component {
 			city:'',
             workshop:'',
 			age:'',
-			// startdate:'',
+			event_name:'',
+			startdate:'',
 
 		}
-		this.handleChange = this.handleChange.bind(this);
+		// this.handleChange = this.handleChange.bind(this);
 	}
 // e is a representative varible of this.state
 changeHandler = e => {
 	this.setState({ [e.target.name]: e.target.value })//json object key value pair
 }
 
-handleChange(date) {
-	this.setState({
-	startDate: date
-	})
-	}
+// handleChange(date) {
+// 	this.setState({
+// 	startdate: date.toDateString()
+// 	})
+// 	}
 
 
 
@@ -41,16 +42,16 @@ submitHandler = e => {
 	var user_obj;
 	e.preventDefault()
 	console.log(this.state)//line used to print on console
-	// axios // used for post requests also works similar to promises
-	// 	.post('https://yesplus-event-reg-backend.herokuapp.com/add_user', this.state) //data is the function name written for login in backend also this line helps to pass the data to backend server from frontend server
-	// 	.then(response => { //this line helps use to rececive response from backend 
-	// 		user_obj=response.data;
-	// 		if(user_obj.status === 200){ //user_obj is the response rececived from the backend
-	// 			this.props.history.push('/Tq')
-	// 		}
-	// 		else
-	// 			alert('Please try registering again.');
-	// 	})
+	axios // used for post requests also works similar to promises
+		.post('https://yesplus-registration.herokuapp.com/register', this.state) //data is the function name written for login in backend also this line helps to pass the data to backend server from frontend server
+		.then(response => { //this line helps use to rececive response from backend 
+			user_obj=response.data;
+			if(user_obj.status === 200){ //user_obj is the response rececived from the backend
+				this.props.history.push('/Tq')
+			}
+			else
+				alert('Please try registering again.');
+		})
 
     	.catch(error => {
 			console.log(error)// if u find some error catch gets exceuted
@@ -59,12 +60,13 @@ submitHandler = e => {
 
 
 	render() {
-		const { name,tel,WhatsApp,email,profession,workshop,age,city,state,date } = this.state
+		const { name,tel,WhatsApp,email,profession,workshop,age,city,state,startdate,event_name } = this.state
 		
 
 		return (
 			<div className="yp_form">
 				<form onSubmit={this.submitHandler}>
+					<input hidden name="event_name" value="Living_out_Loud" />
 				<div>
 					<center><h2>Register Here</h2></center>
 					<label><b>Name:</b></label>
@@ -108,7 +110,7 @@ submitHandler = e => {
 						placeholder="Enter your WhatsApp number"
 						value={WhatsApp}
 						onChange={this.changeHandler}
-						
+						required
 					/>
 				</div>		
 								
@@ -195,14 +197,13 @@ submitHandler = e => {
 
 				<div>
 				<label><b>When did you do the workshop</b> </label><br/>
-				<DatePicker
-					name="date"
-					value={date}
-					selected={ this.state.startDate }
-					onChange={ this.handleChange }
-					dateFormat="MM./yyyy"
-					placeholderText="MM/yyyy"
-					showMonthYearPicker
+				<input
+					type="text"
+					name="startdate"
+					value={startdate}					
+					onChange={ this.changeHandler }					
+					placeholder="MM/YYYY"
+					
 				/>
 				</div>
 					
